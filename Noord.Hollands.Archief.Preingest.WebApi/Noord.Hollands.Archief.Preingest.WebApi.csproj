@@ -1,0 +1,85 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <UserSecretsId>e5ac314a-1cc0-4a33-a354-d7384efe85da</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS> 
+    <AssemblyName>Noord.Hollands.Archief.Preingest.WebApi</AssemblyName>
+    <RootNamespace>Noord.Hollands.Archief.Preingest.WebApi</RootNamespace>
+	<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	<Deterministic>false</Deterministic>
+	<StartupObject>Noord.Hollands.Archief.Preingest.WebApi.Program</StartupObject> 
+	<DockerComposeProjectPath>docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <WarningLevel>5</WarningLevel>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'Pre.Ingest.WebApi' " />
+  <ItemGroup>
+    <None Remove="Stylesheet\00-opex-strip-namespaces.xsl" />
+    <None Remove="Stylesheet\01-opex-add-namespaces.xsl" />
+    <None Remove="Stylesheet\02-opex-folders.xsl" />
+    <None Remove="Stylesheet\03-opex-folder-files.xsl" />
+    <None Remove="Stylesheet\04-opex-files.xsl" />
+    <None Remove="Stylesheet\05-opex-finalize.xsl" />
+    <None Remove="Stylesheet\flatten.xsl" />
+    <None Remove="Schema\XIP-V6.xsd" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<EmbeddedResource Include="Schema\OPEX-Metadata.xsd" />
+    <EmbeddedResource Include="Schema\XIP-V6.xsd" />
+    <EmbeddedResource Include="Schema\MDTO-XML 1.0.xsd" />
+    <EmbeddedResource Include="Schema\ToPX-2.3_2.xsd" />
+    <EmbeddedResource Include="Stylesheet\00-opex-strip-namespaces.xsl" />
+    <EmbeddedResource Include="Stylesheet\01-opex-add-namespaces.xsl" />
+    <EmbeddedResource Include="Stylesheet\02-opex-folders.xsl" />
+    <EmbeddedResource Include="Stylesheet\03-opex-folder-files.xsl" />
+    <EmbeddedResource Include="Stylesheet\04-opex-files.xsl" />
+    <EmbeddedResource Include="Stylesheet\05-opex-finalize.xsl" />
+    <EmbeddedResource Include="Stylesheet\flatten.xsl" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.97.0" />
+    <PackageReference Include="CsvHelper" Version="30.0.1" />
+    <PackageReference Include="itext7" Version="7.2.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="7.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+    <PackageReference Include="Mono.Posix.NETStandard" Version="1.0.0" />
+    <PackageReference Include="nClamCI" Version="4.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <PackageReference Include="System.IO.Compression" Version="4.3.0" />
+    <PackageReference Include="System.IO.Compression.ZipFile" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Connected Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Stylesheet\afterpolish-mdto.xsl">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Stylesheet\afterpolish-topx.xsl">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+
+</Project>

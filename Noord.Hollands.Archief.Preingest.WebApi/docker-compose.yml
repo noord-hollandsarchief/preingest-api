@@ -1,0 +1,13 @@
+version: '3.4'
+
+services:
+  noord.hollands.archief.preingest.webapi:
+    container_name: 'preingest-api'
+    image: ${DOCKER_REGISTRY-}noordhollandsarchiefpreingestwebapi
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+networks:
+  default:
+    name: 'preingest-network'
+    external: true

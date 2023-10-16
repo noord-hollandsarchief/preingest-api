@@ -1,0 +1,19 @@
+{
+  "profiles": {
+    "Pre.Ingest.WebApi": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "/swagger",
+      "applicationUrl": "{Scheme}://{ServiceHost}:{ServicePort}",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "Docker": {
+      "commandName": "Docker",
+      "launchBrowser": true,
+      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "environmentVariables": {}
+    }
+  }
+}

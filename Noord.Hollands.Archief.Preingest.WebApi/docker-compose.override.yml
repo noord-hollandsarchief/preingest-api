@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  noord.hollands.archief.preingest.webapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:80
+    ports:
+      - "80"
+    volumes:
+      - ~/.aspnet/https:/root/.aspnet/https:ro
+      - ~/.microsoft/usersecrets:/root/.microsoft/usersecrets:ro
+      - /Users/waiywong/Projects/data:/data
+      - /Users/waiywong/Projects/prewash:/prewash

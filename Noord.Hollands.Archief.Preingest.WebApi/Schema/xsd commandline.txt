@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\xsd.exe" /classes /language:cs /namespace:Pre.Ingest.WebApi.Entities.ToPX "D:\01_Noord-Hollands Archief\Project.Ingest\Pre.Ingest.WebApi\Schema\ToPX-2.3_2.xsd"
